@@ -1,0 +1,21 @@
+<mat-sidenav-container class="h-100" autosize>
+  <mat-sidenav mode="side" opened style="min-width: 48px">
+    <div class="d-flex flex-row align-items-center">
+      <button mat-icon-button (click)="sideNavExpanded = !sideNavExpanded">
+        <mat-icon>{{ sideNavExpanded ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+      </button>
+      <h2 class="m-0 title" *ngIf="sideNavExpanded">Filters</h2>
+    </div>
+
+    <mat-calendar *ngIf="sideNavExpanded" [(selected)]="selectedDate" style="width: 300px"></mat-calendar>
+  </mat-sidenav>
+  <mat-sidenav-content class="d-flex flex-row">
+    <div class="h-100 w-100 overflow-auto">
+      <ng-container *ngFor="let range of hoursRange">
+        <div style="height: 40px">
+          <mat-divider></mat-divider>
+        </div>
+      </ng-container>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
